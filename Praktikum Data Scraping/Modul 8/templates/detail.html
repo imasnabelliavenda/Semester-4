@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1>{{ detail.title }}</h1>
+
+    {% if detail.image_src %}
+        <img src="{{ detail.image_src }}" alt="Gambar artikel" class="img-fluid mb-3">
+    {% endif %}
+
+    <!-- Teks artikel di sini -->
+    <div style="white-space: pre-wrap; text-align: justify; line-height: 1.6;">
+        {{ detail.content }}
+    </div>
+</div>
+{% endblock %}

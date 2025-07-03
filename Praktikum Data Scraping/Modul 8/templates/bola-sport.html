@@ -1,0 +1,16 @@
+{% for item in data %}
+    {% set link_tag = item.find('a', class_='news-list__link') %}
+    {% set img_tag = item.find('img') %}
+    {% if link_tag and img_tag %}
+        <div class="row mb-3">
+            <div class="col-3">
+                {{ img_tag | safe }}
+            </div>
+            <div class="col-9">
+                <a href="{{ url_for('article_detail', source='bola-sport', url=link_tag['href']) }}">
+                    <p class="fs6">{{ img_tag['alt'] }}</p>
+                </a>
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}

@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% block body %}
+    {% for image in images %}
+        <div class="row">
+            <div class="col-3">{{ image.find('span')['img']|safe }}</div>
+            <div class="col-3">
+                <a href="{{ url_for('article_detail', source='detik', url=image.find('a')['href']) }}">
+                    <b>{{ image.find('a').find('img')['title']|safe }}</b>
+                </a>
+            </div>
+            <div class="col-3">{{ image.find('div', {'class':'media__date'}).find('span')|safe }}</div>
+            <div class="col-3">{{ image.find('div', {'class':'media__date'}).find('span')['title'] }}</div>
+        </div>
+    {% endfor %}
+{% endblock %}
